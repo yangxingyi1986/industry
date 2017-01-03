@@ -1,0 +1,5 @@
+com/yunfan/util/configure/test/AgentConfigureManagerTest.class
+com/yunfan/util/configure/test/mock/AgentManagerMocker.class
+com/yunfan/util/configure/test/ConfigureFileDetectorTest.class
+com/yunfan/util/configure/test/AgentFileTest.class
+com/yunfan/util/configure/test/TestHello.class

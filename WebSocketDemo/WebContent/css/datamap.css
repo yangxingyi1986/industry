@@ -1,0 +1,140 @@
+.show_div {
+	display: none;
+	position:absolute;
+	left:50%;
+	top:50%;
+	width:300px;
+	height:280px;
+	margin-left:55px;
+	margin-top:10px;
+	border:1px solid #888;
+	background-color:#8CFFFF;
+	text-align:center;
+	-moz-opacity:0.8;
+	opacity:0.80;
+	filter: alpha(opacity=80);
+}
+
+.show_div:before{
+  width:0px;
+  height:0px;
+  border: 10px transparent solid;
+  border-right-color: #888;
+  position:absolute;
+  top:20px;
+  left:-20px;
+  content:""
+}
+
+.show_div:after{
+  width:0px;
+  height:0px;
+  border: 8px transparent solid;
+  border-right-color: #8CFFFF;
+  position:absolute;
+  top:22px;
+  left:-16px;
+  content:""
+}
+
+.show_div .first_div{
+	border: solid 1px #EEEEEE;
+	width: 90%;
+	height: 73px;
+	position:absolute;
+	left:5%;
+	top:7px;
+}
+
+.show_div .first_div .title_font{
+	position: relative;
+	top: -10px;
+	left: 0px;
+	background-color: #8CFFFF;
+}
+
+.show_div .first_div .first_font{
+	position: absolute;
+	top:5px;
+	left:5px;
+}
+.show_div .first_div .second_font{
+	position: absolute;
+	top:25px;
+	left:5px;
+}
+
+.show_div .first_div .third_font{
+	position: absolute;
+	top:45px;
+	left:5px;
+}
+
+.show_div .second_div{
+	border: solid 1px #EEEEEE;
+	width: 90%;
+	height: 73px;
+	position:absolute;
+	left:5%;
+	top:86px;
+}
+.show_div .second_div .title_font{
+	position: relative;
+	top: -10px;
+	left: 0px;
+	background-color: #8CFFFF
+}
+.show_div .second_div .first_font{
+	position: absolute;
+	top:5px;left:5px;
+}
+.show_div .second_div .second_font{
+	position: absolute;top:25px;left:5px;
+}
+.show_div .second_div .third_font{
+	position: absolute;top:45px;left:5px;
+}
+
+.show_div label{
+	width:55px;
+}
+
+.show_div .third_div{
+	border: solid 0px #EEEEEE;
+	width: 90%;
+	height: 73px;
+	position:absolute;
+	left:5%;
+	top:165px;
+}
+
+.third_div table{
+	width: 100%;
+	font-size: 6px;
+}
+
+.third_div tr{
+	width: 100%;
+}
+
+.third_div .right{
+	width:55%;
+}
+
+.third_div .left{
+	width:45%;
+}
+
+.third_div a{
+	background:-webkit-gradient(linear, left top, left bottom, from(#00adee), to(#0078a5));
+	padding:.5em 2em .55em;
+	-webkit-border-radius:2em;
+	-moz-border-radius:2em;
+	border-radius:2em;
+	cursor:pointer;
+	outline:none;
+	display:inline-block;
+	text-decoration:none;
+	color:#d9eef7;
+	font-size:14px;
+}

@@ -1,0 +1,5 @@
+{
+"pluginFullName":"com.yunfan.publisher.ClimatePublisher",
+"pluginFilePath":"/opt/industrial/yunfan/Publish/ClimatePublish.jar",
+"pluginClass":"com.yunfan.publisher.ClimatePublisher"
+}

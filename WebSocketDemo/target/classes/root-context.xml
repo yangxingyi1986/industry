@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xmlns:jee="http://www.springframework.org/schema/jee"
+	xmlns:tx="http://www.springframework.org/schema/tx" 
+	xmlns:p="http://www.springframework.org/schema/p" 
+	xmlns:util="http://www.springframework.org/schema/util"
+	xmlns:tool="http://www.springframework.org/schema/tool" 
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:task="http://www.springframework.org/schema/task"
+	xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xmlns:websocket="http://www.springframework.org/schema/websocket"
+	xsi:schemaLocation="
+	http://www.springframework.org/schema/beans  
+	http://www.springframework.org/schema/beans/spring-beans.xsd
+	http://www.springframework.org/schema/tx  
+	http://www.springframework.org/schema/tx/spring-tx.xsd  
+	http://www.springframework.org/schema/jee  
+	http://www.springframework.org/schema/jee/spring-jee.xsd  
+	http://www.springframework.org/schema/context  
+	http://www.springframework.org/schema/context/spring-context.xsd  
+	http://www.springframework.org/schema/util  
+	http://www.springframework.org/schema/util/spring-util.xsd  
+	http://www.springframework.org/schema/tool  
+	http://www.springframework.org/schema/tool/spring-tool.xsd
+	http://www.springframework.org/schema/task 
+	http://www.springframework.org/schema/task/spring-task.xsd
+	http://www.springframework.org/schema/websocket 
+	http://www.springframework.org/schema/websocket/spring-websocket-4.2.xsd
+	http://www.springframework.org/schema/mvc
+	http://www.springframework.org/schema/mvc/spring-mvc-4.2.xsd">
+	
+	<!-- websocket相关扫描，主要扫描：WebSocketConfig.java 这个类路径 -->
+	<context:component-scan base-package="com.yunfan"/>
+	
+	<!-- 下面标签可以不加 等价于所有component-scan-->
+	<context:annotation-config />
+	
+	<!-- 这个重点，标注必须加，websocket用到-->
+	<mvc:annotation-driven>
+		<mvc:message-converters register-defaults="true">
+			<bean class="org.springframework.http.converter.StringHttpMessageConverter">
+				<property name="supportedMediaTypes" value = "text/html;charset=UTF-8" />
+			</bean>
+   		</mvc:message-converters>
+	</mvc:annotation-driven>
+	
+	<mvc:default-servlet-handler/>
+	<mvc:resources location="/image/" mapping="/image/**"/> 
+	<mvc:resources location="/css/" mapping="/css/**"/> 
+	<mvc:resources location="/js/" mapping="/js/**"/>
+	
+    <bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+    	<property name="viewClass" value="org.springframework.web.servlet.view.JstlView" />
+    	<property name="prefix" value="/WEB-INF/view/"/>
+    	<property name="suffix" value=".jsp"/>
+    	<property name="order" value="2" />
+    </bean>   
+	
+	<bean id="serviceExporter" class="org.springframework.remoting.rmi.RmiServiceExporter">  
+        <property name="serviceName" value="IMessageDisplayer" />  
+        <property name="service" ref="messageDisplayer" />  
+        <property name="serviceInterface" 
+            value="com.yunfan.gmoft.websocket.IMessageDisplayer" />  
+        <property name="registryPort" value="8888" />  
+    </bean>  
+  
+    <bean id="messageDisplayer" class="com.yunfan.gmoft.websocket.MessageDisplayerImpl" />
+    <bean id="tilesViewResolver" class="org.springframework.web.servlet.view.UrlBasedViewResolver">
+    	<property name="viewClass">
+    		<value>org.springframework.web.servlet.view.tiles3.TilesView</value>
+    	</property>
+    	<property name="order" value="1" />
+    </bean>
+    
+    <bean id="tilesConfigurer" class="org.springframework.web.servlet.view.tiles3.TilesConfigurer">
+    	<property name="definitions">
+    		<list>
+    			<value>/WEB-INF/defs/tiles.xml</value>
+    		</list>
+    	</property>
+    </bean>
+</beans>

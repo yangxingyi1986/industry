@@ -1,0 +1,7 @@
+com/yunfan/agent/manager/AgentManagerService.class
+com/yunfan/agent/manager/AgentManagerServiceImpl.class
+com/yunfan/agent/AgentCmd.class
+com/yunfan/agent/Agent.class
+com/yunfan/agent/AgentConfigure.class
+com/yunfan/agent/manager/AgentManagerStartup.class
+com/yunfan/agent/util/Constant.class

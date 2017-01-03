@@ -1,0 +1,5 @@
+{
+"pluginFullName":"com.yunfan.agent.climate.ClimateServiceProxy",
+"pluginFilePath":"/opt/industrial/yunfan/Agent/ClimateAgent.jar",
+"pluginClass":"com.yunfan.agent.climate.ClimateServiceProxy"
+}

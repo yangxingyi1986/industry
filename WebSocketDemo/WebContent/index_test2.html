@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Hello WebSocket</title>
+    <script src="js/sockjs-0.3.4.js"></script>
+	<script src="js/jquery.min.js"></script>
+	<script src="js/display/yunfan-socket.js"></script>
+    <script type="text/javascript">
+	initWebSocket("detail");
+    websocket.onopen = function (evnt) {
+    	websocket.send("123");
+    };
+
+    websocket.onmessage = function (evnt) {
+    	var obj = evnt.data;
+    	if(obj.length != null && obj.indexOf("sparktime") > 0){
+    		$("#spark").append(obj).append("<br>");
+    	}else if(obj.length != null){
+       		$("#direct").append(obj).append("<br>");
+       	}
+    };
+    
+    websocket.onerror = function (evnt) {
+    };
+    </script>
+</head>
+<body>
+<div>
+    <div id="spark" style="background-color:#blue;font:#fff;height:50%;width:100%;">
+    </div>
+    <div id="direct" style="background-color:#red;font:#fff;height:50%;width:100%;">
+    </div>
+</div>
+</body>
+</html>
